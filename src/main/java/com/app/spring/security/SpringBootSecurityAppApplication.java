@@ -2,14 +2,15 @@ package com.app.spring.security;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
+@ComponentScan(basePackages = "com.elk")
 public class SpringBootSecurityAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootSecurityAppApplication.class, args);
-	// Removed invalid duplicate main method
-		System.out.println("Hello World");
 	}
 
 }
