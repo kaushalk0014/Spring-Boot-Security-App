@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.AuthRequestDTO;
 import com.app.entiry.UserDetails;
 import com.app.service.UserService;
 
@@ -23,5 +24,11 @@ public class UserController {
 		details=service.addUser(details);
 		return new ResponseEntity<String>("", HttpStatus.OK);
 	}
-
-}
+	
+	
+	@PostMapping("/authenticate")
+	public ResponseEntity<String> authenticateAndGetToken(@RequestBody AuthRequestDTO authRequest){
+		
+		return new ResponseEntity<String>("", HttpStatus.OK);
+	}
+}	

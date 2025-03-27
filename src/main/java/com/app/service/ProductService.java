@@ -2,13 +2,13 @@ package com.app.service;
 
 import java.util.List;
 
-import com.app.dto.ProductDTO;
+import com.app.entiry.Product;
 
 public interface ProductService {
 
-	List<ProductDTO> getAallPrduct();
+	List<Product> getAallPrduct();
 
-	ProductDTO getById(Integer id);
+	Product getById(Integer id);
 
 
 }
