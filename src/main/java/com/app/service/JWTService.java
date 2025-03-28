@@ -5,7 +5,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+
+import com.app.entiry.UserInfo;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -34,5 +37,15 @@ public class JWTService {
 	private Key getSignKey() {
 		 byte[] keyByte=Decoders.BASE64.decode(SECRET);
 		return Keys.hmacShaKeyFor(keyByte);
+	}
+
+	public String extractUsername(String token) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean validateToken(String token, UserDetails userDetails) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

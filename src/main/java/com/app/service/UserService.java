@@ -1,9 +1,9 @@
 package com.app.service;
 
-import com.app.entiry.UserDetails;
+import com.app.entiry.UserInfo;
 
 public interface UserService {
 
-	UserDetails addUser(UserDetails details);
+	UserInfo addUser(UserInfo details);
 
 }

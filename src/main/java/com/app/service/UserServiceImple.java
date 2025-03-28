@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.dao.UserDAO;
-import com.app.entiry.UserDetails;
+import com.app.entiry.UserInfo;
 
 @Service
 public class UserServiceImple implements UserService {
@@ -13,7 +13,7 @@ public class UserServiceImple implements UserService {
 	private UserDAO userDAO;
 	
 	@Override
-	public UserDetails addUser(UserDetails details) {
+	public UserInfo addUser(UserInfo details) {
 		return userDAO.save(details);
 	}
 }
