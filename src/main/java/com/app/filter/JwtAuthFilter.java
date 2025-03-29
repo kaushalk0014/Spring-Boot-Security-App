@@ -10,7 +10,6 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.app.entiry.UserInfo;
 import com.app.security.config.UserInfoUserDetailsService;
 import com.app.service.JWTService;
 
@@ -31,10 +30,10 @@ public class JwtAuthFilter extends OncePerRequestFilter{
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-		   String authHeader = request.getHeader("Authorization");
+		   String authHeader = request.getHeader("authorization");
 	        String token = null;
 	        String username = null;
-	        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+	        if (authHeader != null && authHeader.startsWith("JWT ")) {
 	            token = authHeader.substring(7);
 	            username = jwtService.extractUsername(token);
 	        }

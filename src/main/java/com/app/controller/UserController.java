@@ -39,7 +39,6 @@ public class UserController {
 	
 	@PostMapping("/authenticate")
 	public ResponseEntity<String> authenticateAndGetToken(@RequestBody AuthRequestDTO authRequest){
-		
 		String token=null;
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
         if (authentication.isAuthenticated()) {

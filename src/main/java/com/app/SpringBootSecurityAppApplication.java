@@ -1,4 +1,4 @@
-package com.app.security.config;
+package com.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication//(exclude = { DataSourceAutoConfiguration.class })
-@ComponentScan(basePackages = "com.elk")
+@ComponentScan(basePackages = "com.app, com.app.security.config")
 @EntityScan(basePackages = "com.app.entiry")
 public class SpringBootSecurityAppApplication {
 

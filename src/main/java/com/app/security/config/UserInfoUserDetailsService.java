@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import com.app.dao.UserDAO;
+import com.app.entiry.UserInfo;
 
 @Component
 public class UserInfoUserDetailsService  implements UserDetailsService {
@@ -18,8 +19,10 @@ public class UserInfoUserDetailsService  implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		 Optional<UserInfo> userInfo = repository.findByName(username);
+	        return userInfo.map(UserInfoUserDetails::new)
+	                .orElseThrow(() -> new UsernameNotFoundException("user not found " + username));
+
 	}
 
 	 
