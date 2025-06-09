@@ -30,13 +30,17 @@ public class ProductController {
 	@GetMapping("/getAallPrduct")
 	public ResponseEntity<List<Product>> getAallPrduct(){
 		List<Product> list=productService.getAallPrduct();
-		return new ResponseEntity<List<Product>>(list, HttpStatus.OK);
+		 return list.isEmpty()
+				 ? new ResponseEntity<List<Product>>(list, HttpStatus.NO_CONTENT)
+				 : new ResponseEntity<List<Product>>(list, HttpStatus.OK);
 	}
 
 	@GetMapping("/getById")
 	@PreAuthorize("hasAuthority('ROLL_USER')")
 	public ResponseEntity<Product> getById(Integer id){
 		Product product=productService.getById(id);
-		return new ResponseEntity<Product>(product, HttpStatus.OK);
+		return product ==null 
+				? new ResponseEntity<Product>(product, HttpStatus.NO_CONTENT)
+				: new ResponseEntity<Product>(product, HttpStatus.OK);
 	}
 }
